@@ -1,0 +1,155 @@
+body {
+  width: 100%;
+  background: url(img/Stylish_Marble2025_5.png) no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #e6f7ff;
+  color: #333;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* モーダルウィンドウのスタイル */
+.modal {
+  display: none; /* 初期状態で非表示 */
+  position: fixed; /* 画面に固定 */
+  z-index: 1; /* 他のコンテンツの上に表示 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
+  justify-content: center; /* コンテンツを水平方向中央に */
+  align-items: center; /* コンテンツを垂直方向中央に */
+  opacity: 0; /* 透明度でフェードイン/アウト */
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex; /* JavaScriptで表示する際にflexboxを使用 */
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* display: flex; の場合は不要だが、念のため */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%; /* 幅を調整 */
+  max-width: 500px; /* 最大幅 */
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform: translateY(-50px); /* 最初は少し上にずらしてフェードイン */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-button {
+  color: #aaa;
+  float: right; /* 右上に配置 */
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  line-height: 1.5;
+  color: #555;
+}
+/*==================================================
+
+Box
+
+==================================================*/
+
+.box {
+  width: 720px;
+  height: 480px;
+  margin: 13% auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  transition: 0.4s;
+}
+.box::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  transition: 0.4s;
+  transition-delay: 0.5s;
+}
+.box::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  transition: 0.4s;
+  transition-delay: 0.5s;
+}
+.box:hover:before,
+.box:hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(255, 255, 255, 0.3);
+  transition-delay: 0s;
+}
+.box:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transition-delay: 0.3s;
+}
